@@ -12,7 +12,7 @@ target/
 # Default ignored files
 /shelf/
 /workspace.xml
-# Editor-based HTTP Client requests
+# Editor-kbased HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
 /dataSources/
@@ -28,3 +28,4 @@ debug_files/
 src/ping_pong_rma
 c_buggy.c
 .py
+c_rma
