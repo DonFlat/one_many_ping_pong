@@ -21,11 +21,11 @@ def main():
 
     # Define commands and filenames based on network mode
     if args.network_mode == 'ib':
-        base_command = f"prun -np {node_num} -1 -script $PRUN_ETC/prun-openmpi `pwd`/"
+        base_command = f"prun -np {args.node_num} -1 -script $PRUN_ETC/prun-openmpi `pwd`/"
         filenames = ["rma_size_direct_ib.csv", "c_rma_size_direct_ib.csv"]
         programs = ["./target/release/one_many_ping_pong rma ", "./c_rma "]
     else:  # network_mode == 'ip'
-        base_command = f"prun -np {node_num} -1 OMPI_OPTS=\"--mca btl tcp,self --mca btl_tcp_if_include ib0\" -script $PRUN_ETC/prun-openmpi `pwd`/"
+        base_command = f"prun -np {args.node_num} -1 OMPI_OPTS=\"--mca btl tcp,self --mca btl_tcp_if_include ib0\" -script $PRUN_ETC/prun-openmpi `pwd`/"
         filenames = ["rma_size_direct_ip.csv", "c_rma_size_direct_ip.csv"]
         programs = ["./target/release/one_many_ping_pong rma ", "./c_rma "]
 
