@@ -35,11 +35,12 @@ def main():
             command = f"{base_command}{program}{size}"
             print(f"Running command: {command}")
             run_command(command)
-            # Rename file if it exists
-            if os.path.exists("rma.csv"):
-                os.rename("rma.csv", filename)
-            if os.path.exists("c_rma.csv"):
-                os.rename("c_rma.csv", filename)
+
+    if os.path.exists("rma.csv"):
+        os.rename("rma.csv", f"rma_size_{args.network_mode}.csv")
+    if os.path.exists("c_rma.csv"):
+        os.rename("c_rma.csv", f"c_rma_size_{args.network_mode}.csv")
+
 
 if __name__ == "__main__":
     main()
