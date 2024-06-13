@@ -46,7 +46,7 @@ fn run_ping_pong(vector_size: usize, rank: Rank, world_size: Rank, world: &Simpl
         }
     }
     if rank == 0 {
-        println!("Rank: {}, vec: {:?}", rank, win.window_vector);
+        // println!("Rank: {}, vec: {:?}", rank, win.window_vector);
         append_to_csv("rma.csv", vector_size, world_size as usize, &latency_data).expect("Failed to write csv");
         println!("Done with: Rank 0: run ping pong with size: {}", vector_size);
     }
