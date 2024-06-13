@@ -9,9 +9,7 @@ pub fn ping_pong(size: u32) {
     let rank = world.rank();
     let world_size = world.size();
 
-    for n in powers_of_two(size) {
-        run_ping_pong(n as usize, rank, world_size, &world);
-    }
+    run_ping_pong(size as usize, rank, world_size, &world);
 }
 
 fn run_ping_pong(vector_size: usize, rank: Rank, world_size: Rank, world: &SimpleCommunicator) {

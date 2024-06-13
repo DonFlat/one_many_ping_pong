@@ -29,20 +29,6 @@ void write_to_csv(double window_size, int node_num, double* latency) {
     printf("Data appended to c_rma.csv\n");
 }
 
-double* powers_of_two(double size) {
-    double* result = malloc(size * sizeof(double));
-    if (result == NULL) {
-        fprintf(stderr, "Memory allocation failed\n");
-        return NULL;
-    }
-
-    for (int i = 0; i < size; i++) {
-        result[i] = pow(2, i);
-    }
-
-    return result;
-}
-
 void ping_pong(char *argv[], int window_size, int node_num, int rank) {
     //  ---- Start RMA
     // Initialize Window
@@ -90,11 +76,7 @@ int main(int argc, char *argv[]) {
 
     //  ---- Generate test data
     int size = atoi(argv[1]);
-    double* powers = powers_of_two(size);
-
-    for (int i = 0; i < size; i++) {
-        ping_pong(argv, powers[i], numprocs, rank);
-    }
+    ping_pong(argv, size, numprocs, rank);
 
     MPI_Finalize();
     return 0;
