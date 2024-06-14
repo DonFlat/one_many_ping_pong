@@ -1,7 +1,7 @@
 use mpi::Rank;
 use mpi::topology::{Communicator, SimpleCommunicator};
 use mpi::window::{AllocatedWindow, WindowOperations};
-use crate::test_utils::{append_to_csv, powers_of_two};
+use crate::test_utils::{append_to_csv};
 
 pub fn ping_pong(size: u32) {
     let universe = mpi::initialize().unwrap();

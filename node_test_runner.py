@@ -31,7 +31,7 @@ def main():
         for program, output_file in zip(programs, ["rma.csv", "c_rma.csv"]):
             command = f"prun -np {node_num} {base_command}{program}{args.size}"
             print(f"Running command: {command}")
-            #run_command(command)
+            run_command(command)
             # Rename file if it exists
 
     for filename in ["rma.csv", "c_rma.csv"]:
